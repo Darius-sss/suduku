@@ -3,11 +3,12 @@ __author__ = 'ZhiYong Sun'
 
 
 import sys
-from PyQt5.QtWidgets import *
-from PyQt5.QtCore import *
-from PyQt5.QtGui import *
+
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, QTableWidgetItem
+from PyQt5.QtGui import QBrush, QColor
 from sudoku import Ui_Form
-import matplotlib.pyplot as plt
+from matplotlib.pyplot import rcParams, imread, figure, show, axis, imshow, title
 import os
 import csv
 
@@ -31,13 +32,13 @@ class game(QMainWindow, Ui_Form):
         return prob
 
     def show_pic(self):
-        plt.rcParams['font.sans-serif'] = ['SimHei']  # 用来正常显示中文标签
-        img = plt.imread(self.path + r'./ziyuan/fuli.jpg')
-        plt.figure("通关福利")  # 图像窗口名称
-        plt.imshow(img)
-        plt.axis('off')  # 关掉坐标轴为 off
-        plt.title('情 人 节 快 乐 之 湿 身 诱 惑')  # 图像题目
-        plt.show()
+        rcParams['font.sans-serif'] = ['SimHei']  # 用来正常显示中文标签
+        img = imread(self.path + r'./ziyuan/fuli.jpg')
+        figure("通关福利")  # 图像窗口名称
+        imshow(img)
+        axis('off')  # 关掉坐标轴为 off
+        title('情 人 节 快 乐 之 湿 身 诱 惑')  # 图像题目
+        show()
 
     def isvalid(self, board):  # 判定数独是否有效
         size = len(board)
