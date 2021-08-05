@@ -36,4 +36,8 @@
 			 --这种解决方式，需要注意在代码读取文件的地址出进行修改--由于exe运行时解压的文件夹是随机生成的名称，因此需要动态获取，具体见代码
 	然后使用pyinstaller main.spec 执行spec文件进行打包
 	
+		
+		-- bug1 小屏幕会导致表格显示不全
 	
+	    self.table.resizeRowsToContents()    # 调整行使得自适应大小
+        self.table.resizeColumnsToContents()   # 调整列使得自适应大小
